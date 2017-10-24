@@ -6,7 +6,7 @@ export const create = ({name, amount}) => ({
     name,
     amount,
     id: uuid.v1(),
-    created: new Date(),
+    timestamp: new Date(),
   },
 })
 

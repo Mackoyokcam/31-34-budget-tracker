@@ -2,10 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import CategoryForm from '../category-form'
 import CategoryItem from '../category-item'
-import * as category from '../../action/category.js'
+import * as category from '../../action/categories.js'
 
 class Dashboard extends React.Component {
-
   render(){
 
     let {
@@ -27,16 +26,10 @@ class Dashboard extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => {
-  return {
-    categories: state ,
-  }
-}
+let mapStateToProps = (state) => ({categories: state.categories})
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    categoryCreate: (data) => dispatch(category.create(data)),
-  }
-}
+let mapDispatchToProps = (dispatch) => ({
+  categoryCreate: (data) => dispatch(category.create(data)),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

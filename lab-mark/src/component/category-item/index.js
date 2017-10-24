@@ -1,37 +1,46 @@
 import React from 'react'
 import CategoryForm from '../category-form'
+import ExpenseForm from '../expense-form'
+import ExpenseItem from '../expense-item'
 import {connect} from 'react-redux'
-import * as category from '../../action/category.js'
+import * as category from '../../action/categories.js'
+import * as expense from '../../action/expenses.js'
 
 class CategoryItem extends React.Component {
   render(){
 
-    let {category, categoryUpdate, categoryDestroy} = this.props
+    let {category, categoryUpdate, categoryDestroy, expenseCreate, expenses} = this.props
+    let categoryExpenses = expenses[category.id]
 
     return (
       <li className='category-item'>
         <p> Title: {category.name} </p>
         <p> Amount: {category.amount} </p>
-        <button name='delete' onClick={() => categoryDestroy(this.props.category)}>Delete</button>
+        <p> Created: {category.timestamp.toString()} </p>
+        <button onClick={() => categoryDestroy(category)}>
+          Delete
+        </button>
 
         <h3> Update your category </h3>
-        <CategoryForm onComplete={categoryUpdate} category={category}/>
+        <CategoryForm onComplete={categoryUpdate} category={category} />
+        <ExpenseForm onComplete={expenseCreate} category={category}/>
+        {categoryExpenses.map((expense, i) =>
+          <ExpenseItem
+            expense={expense}
+            key={i}
+          />
+        )}
       </li>
     )
   }
 }
 
-let mapStateToProps = (state) => {
-  return {
-    categories: state ,
-  }
-}
+let mapStateToProps = (state) => ({expenses: state.expenses})
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    categoryUpdate: (data) => dispatch(category.update(data)),
-    categoryDestroy: (data) => dispatch(category.destroy(data)),
-  }
-}
+let mapDispatchToProps = (dispatch) => ({
+  categoryUpdate: (data) => dispatch(category.update(data)),
+  categoryDestroy: (data) => dispatch(category.destroy(data)),
+  expenseCreate: (data) => dispatch(expense.create(data)),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem)

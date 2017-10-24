@@ -5,7 +5,7 @@
     "comma-dangle": ["error", "always-multiline"],
     "no-console": "off",
     "no-unused-vars": "off",
-    "indent": [ "error", 2 ],
+    "indent": ["error", 2, {"SwitchCase": 1}],
     "semi": ["error", "never"]
   },
   "plugins": [ "react" ],
