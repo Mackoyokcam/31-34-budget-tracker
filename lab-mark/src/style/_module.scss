@@ -1,0 +1,23 @@
+@import 'vars';
+
+h1 {
+  font-size: 3em;
+  color: $color-aqua;
+}
+
+form {
+  display: block;
+  text-align: center;
+
+  fieldset {
+    display: inline;
+
+    legend {
+      text-align: center;
+      color: $color-maroon;
+    }
+    input {
+      margin-right: 1em;
+    }
+  }
+}

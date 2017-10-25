@@ -1,3 +1,4 @@
+import './category-item.scss'
 import React from 'react'
 import CategoryForm from '../category-form'
 import ExpenseForm from '../expense-form'
@@ -14,15 +15,13 @@ class CategoryItem extends React.Component {
 
     return (
       <li className='category-item'>
+        <CategoryForm onComplete={categoryUpdate} category={category} />
         <p> Title: {category.name} </p>
         <p> Amount: {category.amount} </p>
-        <p> Created: {category.timestamp.toString()} </p>
-        <button onClick={() => categoryDestroy(category)}>
-          Delete
+        <button className='delete' onClick={() => categoryDestroy(category)}>
+          Remove
         </button>
 
-        <h3> Update your category </h3>
-        <CategoryForm onComplete={categoryUpdate} category={category} />
         <ExpenseForm onComplete={expenseCreate} category={category}/>
         {categoryExpenses.map((expense, i) =>
           <ExpenseItem

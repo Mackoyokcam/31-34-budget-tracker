@@ -40,30 +40,31 @@ class ExpenseForm extends React.Component {
   }
 
   render(){
-    let buttonText = this.props.expense ? 'update' : 'create'
+    let buttonText = this.props.expense ? 'Update' : 'Create'
     return (
       <form
         className='expense-form'
         onSubmit={this.handleSubmit}
       >
+        <fieldset>
+          <legend> {buttonText} Expense </legend>
+          <input
+            type='text'
+            name='name'
+            placeholder='name'
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
 
-        <input
-          type='text'
-          name='name'
-          placeholder='name'
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-
-        <input
-          type='number'
-          name='price'
-          placeholder='price'
-          value={this.state.price}
-          onChange={this.handleChange}
-        />
-
-        <button type='submit'> {buttonText} </button>
+          <input
+            type='number'
+            name='price'
+            placeholder='price'
+            value={this.state.price}
+            onChange={this.handleChange}
+          />
+          <button type='submit'> {buttonText.toLowerCase()} </button>
+        </fieldset>
       </form>
     )
   }

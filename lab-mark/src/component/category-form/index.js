@@ -2,7 +2,7 @@ import React from 'react'
 
 let emptyState  = {
   name: '',
-  amount: 0,
+  amount: '',
 }
 
 class CategoryForm extends React.Component {
@@ -16,6 +16,7 @@ class CategoryForm extends React.Component {
   handleChange(e){
     let {value, name, type} = e.target
     value = type === 'number' ? Number(value) : value
+    value = value === 0 ? '' : value
     this.setState({[name]: value})
   }
 
@@ -31,30 +32,30 @@ class CategoryForm extends React.Component {
   }
 
   render(){
-    let buttonText = this.props.category ? 'update': 'create'
+    let buttonText = this.props.category ? 'Update': 'Create'
 
     return (
       <form
         onSubmit={this.handleSubmit}
         className='category-form'>
-
-        <input
-          type='text'
-          name='name'
-          placeholder='name'
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-
-        <input
-          type='number'
-          name='amount'
-          placeholder='amount'
-          value={this.state.amount}
-          onChange={this.handleChange}
-        />
-
-        <button type='submit'> {buttonText} </button>
+        <fieldset>
+          <legend> {buttonText} Category </legend>
+          <input
+            type='text'
+            name='name'
+            placeholder='name'
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
+          <input
+            type='number'
+            name='amount'
+            placeholder='amount'
+            value={this.state.amount}
+            onChange={this.handleChange}
+          />
+          <button type='submit'> {buttonText.toLowerCase()} </button>
+        </fieldset>
 
       </form>
     )
