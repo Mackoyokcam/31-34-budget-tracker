@@ -1,0 +1,32 @@
+$pad: .5em;
+
+.expense-item {
+  width: 100%;
+  padding: $pad;
+  position: relative;
+  outline: 1px solid black;
+  float: left;
+  margin-top: 2em;
+  p {
+    font-size: 2em;
+    width: 49%;
+    outline: 1px solid black;
+  }
+
+  .expense-form {
+    font-weight: bold;
+    width: 49%;
+    float: right;
+  }
+
+  .delete {
+    top: -1em;
+    position: absolute;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    background-color: #ff4136;
+    color: maroon;
+    border-radius: .1em;
+  }
+}

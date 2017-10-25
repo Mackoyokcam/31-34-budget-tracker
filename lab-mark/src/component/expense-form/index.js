@@ -1,45 +1,53 @@
 import React from 'react'
 
-let emptyState  = {
+let emptyState = {
   name: '',
-  amount: '',
+  price: 0,
 }
 
-class CategoryForm extends React.Component {
+class ExpenseForm extends React.Component {
   constructor(props){
     super(props)
-    this.state = this.props.category || emptyState
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = props.expense || emptyState
+
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(e){
     let {value, name, type} = e.target
     value = type === 'number' ? Number(value) : value
-    value = value === 0 ? '' : value
     this.setState({[name]: value})
   }
 
   handleSubmit(e){
     e.preventDefault()
-    this.props.onComplete(this.state)
+    let categoryID = this.props.category ?
+      this.props.category.id :
+      this.props.expense.categoryID
+
+    this.props.onComplete({
+      ...this.state,
+      categoryID,
+    })
+
     this.setState(emptyState)
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.category)
-      this.setState(nextProps.category)
+    if(nextProps.expense)
+      this.setState(nextProps.expense)
   }
 
   render(){
-    let buttonText = this.props.category ? 'Update': 'Create'
-
+    let buttonText = this.props.expense ? 'Update' : 'Create'
     return (
       <form
+        className='expense-form'
         onSubmit={this.handleSubmit}
-        className='category-form'>
+      >
         <fieldset>
-          <legend> {buttonText} Category </legend>
+          <legend> {buttonText} Expense </legend>
           <input
             type='text'
             name='name'
@@ -47,19 +55,20 @@ class CategoryForm extends React.Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
+
           <input
             type='number'
-            name='amount'
-            placeholder='amount'
-            value={this.state.amount}
+            name='price'
+            placeholder='price'
+            value={this.state.price}
             onChange={this.handleChange}
           />
           <button type='submit'> {buttonText.toLowerCase()} </button>
         </fieldset>
-
       </form>
     )
   }
+
 }
 
-export default CategoryForm
+export default ExpenseForm

@@ -1,0 +1,36 @@
+$pad: .5em;
+
+.category-item {
+  width: 43%;
+  padding: $pad;
+  position: relative;
+  outline: 1px solid black;
+  margin: 2em;
+  float: left;
+  p {
+    font-size: 2em;
+    width: 50%;
+  }
+
+  .category-form {
+    width: 50%;
+    float: right;
+    input {
+      display: block;
+    }
+  }
+
+  .expense-form {
+    float: left;
+  }
+  .delete {
+    top: -1em;
+    position: absolute;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    background-color: #ff4136;
+    color: maroon;
+    border-radius: .1em;
+  }
+}

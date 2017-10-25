@@ -7,6 +7,11 @@
     "watch": "webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "jest": {
+   "moduleNameMapper": {
+     "\\.(svg|eof|ttf|woff|woff2|scss|gif)$": "<rootDir>/src/__test__/mock-asset.js"
+   }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
