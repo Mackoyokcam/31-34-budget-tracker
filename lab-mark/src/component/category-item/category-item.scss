@@ -15,6 +15,9 @@ $pad: .5em;
   .category-form {
     width: 50%;
     float: right;
+    input {
+      display: block;
+    }
   }
 
   .expense-form {
