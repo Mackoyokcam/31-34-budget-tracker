@@ -1,29 +1,59 @@
 @import 'vars';
 
-* {
-  box-sizing: border-box;
-}
-
 html {
-  width: 100%;
-  background-color: $color-navy;
-  height: 100%;
+  position: relative;
+  head,link,script { display: none; }
+  body { position: relative; }
+  span, em, strong, i { display: inline }
 }
 
-body {
-  width: 960px;
-  margin: 0 auto;
-  height: 100%;
-  background-color: $color-blue;
+strong {
+  font-weight: bold;
 }
 
-header {
-  display: block;
-  height: 10%;
-  padding: $pad;
+h1 {font-size: 2.5em;}
+h2 {font-size: 2.25em;}
+h3 {font-size: 2em;}
+h4 {font-size: 1.75em;}
+
+a {
+  text-decoration: underline;
+  font-family: sans-serif;
+  color: $color-blue;
+
+  &:active { color: $color-blue * 0.5; }
+  &:visited { color:  $color-fuchsia * 0.8; }
+  &:hover {
+    color: $color-blue;
+    cursor: pointer;
+  }
 }
 
-main {
-  height: 90%;
-  padding: $pad;
+button {
+  width: auto;
+  padding: .25em
+}
+
+form {
+  input {
+    margin: .5em 0 1em 0;
+  }
+
+  input[type='text'] {
+    outline: 1px solid black;
+    width: 16em;
+  }
+
+  input[type='number'] {
+    outline: 1px solid black;
+    width: 6em;
+  }
+
+  fieldset {
+    padding: $pad;
+    legend {
+      width: auto;
+    }
+    border: 1px solid black;
+  }
 }
