@@ -1,6 +1,7 @@
+import './category-form.scss'
 import React from 'react'
 
-let emptyState  = {
+let emptyState = {
   name: '',
   amount: '',
 }

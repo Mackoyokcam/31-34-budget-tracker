@@ -1,8 +1,9 @@
+import './expense-form.scss'
 import React from 'react'
 
 let emptyState = {
   name: '',
-  price: 0,
+  price: '',
 }
 
 class ExpenseForm extends React.Component {
@@ -17,6 +18,7 @@ class ExpenseForm extends React.Component {
   handleChange(e){
     let {value, name, type} = e.target
     value = type === 'number' ? Number(value) : value
+    value = value === 0 ? '' : value
     this.setState({[name]: value})
   }
 

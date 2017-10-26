@@ -1,1 +1,22 @@
+@import 'vars';
 
+.expense-item {
+  border: 1px solid black;
+  padding: $pad;
+  position: relative;
+
+  p {
+    font-weight: bold;
+  }
+
+  .delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $color-orange;
+    font-family: $font-slackey;
+    &:hover {
+      background-color: $color-red;
+    }
+  }
+}

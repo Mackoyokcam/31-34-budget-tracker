@@ -1,1 +1,39 @@
 @import 'vars';
+
+.category-item {
+  border: 1px solid black;
+  padding: $pad;
+  position: relative;
+
+  h4 {
+    font-weight: bold;
+  }
+
+  .expenses {
+    width: 80%;
+    background-color: maroon;
+    height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+    padding: $pad;
+    margin: auto;
+    margin-top: $margin;
+    margin-bottom: $margin;
+  }
+
+  .delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $color-orange;
+    font-family: $font-slackey;
+    &:hover {
+      background-color: $color-red;
+    }
+  }
+
+  .expense-item {
+    background-color: $color-light-gray;
+    margin-top: $margin;
+  }
+}
