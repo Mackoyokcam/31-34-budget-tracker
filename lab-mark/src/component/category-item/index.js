@@ -6,21 +6,39 @@ import ExpenseItem from '../expense-item'
 import {connect} from 'react-redux'
 import * as category from '../../action/categories.js'
 import * as expense from '../../action/expenses.js'
+import * as util from '../../lib/util.js'
 
 class CategoryItem extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {editing: false}
+    this.handleUpdate = this.handleUpdate.bind(this)
+  }
+
+  handleUpdate(category){
+    this.props.categoryUpdate(category)
+    this.setState({editing: false})
+  }
+
   render(){
 
-    let {category, categoryUpdate, categoryDestroy, expenseCreate, expenses} = this.props
+    let {category, categoryDestroy, expenseCreate, expenses} = this.props
     let categoryExpenses = expenses[category.id]
+    let {editing} = this.state
 
     return (
       <li className='category-item'>
-        <CategoryForm onComplete={categoryUpdate} category={category} />
-        <p> Title: {category.name} </p>
-        <p> Amount: {category.amount} </p>
         <button className='delete' onClick={() => categoryDestroy(category)}>
-          Remove
+        Remove
         </button>
+        {util.renderIf(editing,
+          <CategoryForm onComplete={this.handleUpdate} category={category} />)}
+        {util.renderIf(!editing,
+          <div onDoubleClick={() => this.setState({editing: true})}>
+            <p> Title: {category.name} </p>
+            <p> Amount: {category.amount} </p>
+          </div>
+        )}
 
         <ExpenseForm onComplete={expenseCreate} category={category}/>
         {categoryExpenses.map((expense, i) =>
