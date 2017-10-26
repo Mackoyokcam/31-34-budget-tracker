@@ -28,6 +28,7 @@ export default (state=emptyState, {type, payload}) => {
       categoryExpenses = state[categoryID]
       result = categoryExpenses.filter(item => item.id !== payload.id)
       return { ...state, [categoryID]: result }
+      
     default:
       return state
   }

@@ -1,4 +1,4 @@
-$pad: .5em;
+@import 'vars';
 
 .category-item {
   width: 43%;
@@ -29,7 +29,7 @@ $pad: .5em;
     font-size: 1em;
     font-weight: bold;
     border: none;
-    background-color: #ff4136;
+    background-color: $color-red;
     color: maroon;
     border-radius: .1em;
   }
