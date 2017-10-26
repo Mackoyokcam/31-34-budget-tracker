@@ -1,0 +1,18 @@
+@import 'vars';
+
+header {
+  h1 {
+    float: left;
+    width: auto;
+    background-color: red;
+  }
+
+  ul {
+    width: auto;
+    float: right;
+    li {
+      display: inline-block;
+      background-color: red;
+    }
+  }
+}

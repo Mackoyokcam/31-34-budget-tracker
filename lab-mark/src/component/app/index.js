@@ -1,3 +1,5 @@
+import './app.scss'
+
 import React from 'react'
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 import Dashboard from '../dashboard'
