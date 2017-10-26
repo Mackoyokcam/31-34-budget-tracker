@@ -1,3 +1,4 @@
+import './dashboard.scss'
 import React from 'react'
 import {connect} from 'react-redux'
 import CategoryForm from '../category-form'
@@ -15,12 +16,14 @@ class Dashboard extends React.Component {
     return (
       <div className='dashboard'>
         <CategoryForm onComplete={categoryCreate} />
-        {categories.map((category, i) =>
-          <CategoryItem
-            category={category}
-            key={i}
-          />
-        )}
+        <div className='categories'>
+          {categories.map((category, i) =>
+            <CategoryItem
+              category={category}
+              key={i}
+            />
+          )}
+        </div>
       </div>
     )
   }

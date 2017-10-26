@@ -30,8 +30,8 @@ class ExpenseItem extends React.Component {
           <ExpenseForm expense={expense} onComplete={this.handleUpdate} />)}
         {util.renderIf(!editing,
           <div onDoubleClick={() => this.setState({editing: true})}>
-            <p> {expense.name} </p>
-            <p> {expense.price} </p>
+            <p> Expense: {expense.name} </p>
+            <p> Price: {expense.price} </p>
           </div>
         )}
         <button className='delete' onClick={() => expenseDestroy(expense)}>

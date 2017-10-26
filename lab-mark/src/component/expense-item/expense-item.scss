@@ -1,32 +1,22 @@
-$pad: .5em;
+@import 'vars';
 
 .expense-item {
-  width: 100%;
+  border: 1px solid black;
   padding: $pad;
   position: relative;
-  outline: 1px solid black;
-  float: left;
-  margin-top: 2em;
-  p {
-    font-size: 2em;
-    width: 49%;
-    outline: 1px solid black;
-  }
 
-  .expense-form {
+  p {
     font-weight: bold;
-    width: 49%;
-    float: right;
   }
 
   .delete {
-    top: -1em;
     position: absolute;
-    font-size: 1em;
-    font-weight: bold;
-    border: none;
-    background-color: #ff4136;
-    color: maroon;
-    border-radius: .1em;
+    right: 0;
+    top: 0;
+    background-color: $color-orange;
+    font-family: $font-slackey;
+    &:hover {
+      background-color: $color-red;
+    }
   }
 }

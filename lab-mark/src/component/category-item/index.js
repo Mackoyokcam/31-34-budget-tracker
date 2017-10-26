@@ -29,24 +29,26 @@ class CategoryItem extends React.Component {
     return (
       <li className='category-item'>
         <button className='delete' onClick={() => categoryDestroy(category)}>
-        Remove
+        X
         </button>
         {util.renderIf(editing,
           <CategoryForm onComplete={this.handleUpdate} category={category} />)}
         {util.renderIf(!editing,
           <div onDoubleClick={() => this.setState({editing: true})}>
-            <p> Title: {category.name} </p>
-            <p> Amount: {category.amount} </p>
+            <h4> Title: {category.name} </h4>
+            <h4> Amount: {category.amount} </h4>
           </div>
         )}
 
         <ExpenseForm onComplete={expenseCreate} category={category}/>
-        {categoryExpenses.map((expense, i) =>
-          <ExpenseItem
-            expense={expense}
-            key={i}
-          />
-        )}
+        <div className='expenses'>
+          {categoryExpenses.map((expense, i) =>
+            <ExpenseItem
+              expense={expense}
+              key={i}
+            />
+          )}
+        </div>
       </li>
     )
   }
