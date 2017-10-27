@@ -34,7 +34,7 @@ class CategoryItem extends React.Component {
         {util.renderIf(editing,
           <CategoryForm onComplete={this.handleUpdate} category={category} />)}
         {util.renderIf(!editing,
-          <div onDoubleClick={() => this.setState({editing: true})}>
+          <div className='label' onDoubleClick={() => this.setState({editing: true})}>
             <h4> Title: {category.name} </h4>
             <h4> Amount: {category.amount} </h4>
           </div>
