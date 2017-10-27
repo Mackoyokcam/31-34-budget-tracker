@@ -6,6 +6,7 @@ import CategoryItem from '../category-item'
 import * as category from '../../action/categories.js'
 
 class Dashboard extends React.Component {
+
   render(){
 
     let {
