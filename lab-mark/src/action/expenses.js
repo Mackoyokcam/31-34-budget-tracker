@@ -11,12 +11,17 @@ export const create = ({name, price, categoryID}) => ({
   },
 })
 
-export const update = (card) => ({
+export const update = (expense) => ({
   type: 'EXPENSE_UPDATE',
-  payload: card,
+  payload: expense,
 })
 
-export const destroy = (card) => ({
+export const destroy = (expense) => ({
   type: 'EXPENSE_DESTROY',
-  payload: card,
+  payload: expense,
+})
+
+export const updateCategoryID = (expense, categoryID) => ({
+  type: 'EXPENSE_UPDATE_CATEGORY_ID',
+  payload: {expense, categoryID},
 })
