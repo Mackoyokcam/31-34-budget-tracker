@@ -31,8 +31,8 @@ a {
 
 button {
   width: auto;
-  padding: .25em;
   display: inline;
+  padding: 0.25em;
   cursor: pointer;
 }
 
@@ -49,7 +49,6 @@ form {
     padding-left: $pad;
     padding-top: .1em;
     padding-bottom: .1em;
-    font-size: 1em;
     border-color: $color-orange;
     -webkit-transition: border-radius .25s;
     transition: border-radius .25s;
@@ -64,6 +63,8 @@ form {
     width: 30%;
     max-width: 5em;
     padding-left: $pad;
+    padding-top: .1em;
+    padding-bottom: .1em;
     display: inline;
     border-color: $color-orange;
     -webkit-transition: border-radius .25s;
@@ -76,8 +77,8 @@ form {
 
   fieldset {
     padding: $pad;
-    border: 3px solid black;
-    border-style: groove;
+    // border: 3px solid black;
+    // border-style: groove;
     legend {
       font-size: 1.5em;
       font-family: $font-mouse;

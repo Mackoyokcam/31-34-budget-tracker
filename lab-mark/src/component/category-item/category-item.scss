@@ -1,20 +1,24 @@
 @import 'vars';
 
 .category-item {
-  border: 2px solid $color-orange;
-  padding: $pad;
+  border: 2px solid black;
+  // padding: $pad;
   position: relative;
   white-space: normal;
   display: inline-block;
   margin: $margin;
-  background-color: white;
 
-  h4 {
-    font-weight: bold;
+  .label{
+    font-family: $font-rubik;
+    padding: $pad;
+    border-bottom: 1px solid black;
+    margin-bottom: $margin;
+    h4 {
+      font-weight: bold;
+    }
   }
 
   .expenses {
-    background-color: $color-light-gray * .9;
     border: 2px solid black;
     width: 80%;
     height: 70%;
@@ -38,7 +42,6 @@
   }
 
   .expense-item {
-    background-color: $color-light-gray;
     margin-top: $margin;
   }
 }
